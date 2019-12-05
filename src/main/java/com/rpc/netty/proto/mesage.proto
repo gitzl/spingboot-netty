@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "com.rpc.netty.proto";
+option java_outer_classname = "MessageBase";
+
+message Message {
+    string requestId = 1;
+    CommandType cmd = 2;
+    string content = 3;
+    enum CommandType {
+        NORMAL = 0; //常规业务消息
+        HEARTBEAT_REQUEST = 1; //客户端心跳消息
+        HEARTBEAT_RESPONSE = 2; //服务端心跳消息
+    }
+}
